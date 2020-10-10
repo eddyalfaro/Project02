@@ -78,6 +78,10 @@ public class PosAvg implements Comparable<MesoStation>{
 	}
 
 	public String toString() {
+		if (isIndexSkipable()) {
+			return "";
+		}
+		
 		String formated = "This index is average of ";
 		
 		for (int i = 0 ; i < DISTANCE_TO_AVG; i++) {
