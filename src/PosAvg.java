@@ -79,10 +79,12 @@ public class PosAvg implements Comparable<MesoStation>{
 
 	public String toString() {
 		String formated = "This index is average of ";
-		formated += String.format("%s and %s, ", arrayOfAvg[0][FIRST_AVG_INDEX].getStID(), 
-				arrayOfAvg[0][SECOND_AVG_INDEX].getStID());
-		formated += String.format("%s and %s, ", arrayOfAvg[1][FIRST_AVG_INDEX].getStID(), 
-				arrayOfAvg[1][SECOND_AVG_INDEX].getStID());
+		
+		for (int i = 0 ; i < DISTANCE_TO_AVG; i++) {
+			formated += String.format("%s and %s, ", arrayOfAvg[i][FIRST_AVG_INDEX].getStID(), 
+					arrayOfAvg[i][SECOND_AVG_INDEX].getStID());
+		}
+		
 		formated += "and so on.";
 		
 		return formated;
