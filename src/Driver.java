@@ -32,12 +32,12 @@ public class Driver
 		 */
 	    
 		String stID = "CHIC";
-		/*
+		
 		PosAvg posAvg = new PosAvg(stID);
 		System.out.println("The Index of the city is in the Mesonet: " + posAvg.indexOfStation());
 		System.out.println(posAvg);
 		System.out.print("\n");
-		
+		/*
 		MesoInherit mesoInherit = new MesoInherit(new MesoStation(stID));
 		
 		System.out.println("Ascii Ceiling is " + mesoInherit.calAverage()[0]);
