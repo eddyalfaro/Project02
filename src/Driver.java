@@ -32,7 +32,7 @@ public class Driver
 		 */
 	    
 		String stID = "CHIC";
-		
+		/*
 		PosAvg posAvg = new PosAvg(stID);
 		System.out.println("The Index of the city is in the Mesonet: " + posAvg.indexOfStation());
 		System.out.println(posAvg);
@@ -51,6 +51,6 @@ public class Driver
 		LetterAvg letterAvg = new LetterAvg(mesoInherit.letterAverage());
 		System.out.println("Total number of stations starting with the letter '" + mesoInherit.letterAverage() + "' is " + letterAvg.numberOfStationWithLetterAvg() + ".");
 		
-		System.out.print(letterAvg);
+		System.out.print(letterAvg);*/
 	}
 }
