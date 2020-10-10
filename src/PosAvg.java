@@ -46,25 +46,45 @@ public class PosAvg implements Comparable<MesoStation>{
 		for (int i = 1; i <= DISTANCE_TO_AVG; i++) {
 			arrayOfAvg[i - 1][FIRST_AVG_INDEX] =  MesoInherit.STATIONS[indexOfStation - 1 - i];
 			arrayOfAvg[i - 1][SECOND_AVG_INDEX] =  MesoInherit.STATIONS[indexOfStation - 1 + i];
-			System.out.println("Avg values found");
-			System.out.println(Arrays.toString(arrayOfAvg[i-1]));
+			//System.out.println("Avg pair #" + i + " values found:");
+			//System.out.print(MesoInherit.STATIONS[indexOfStation - 1 - i].getStID());
+			//System.out.println(" and " + MesoInherit.STATIONS[indexOfStation - 1 + i].getStID() + '\n');
 		}
 	}
 	
+	public MesoStation[] getFirstAvgPair() {
+		return Arrays.copyOf(arrayOfAvg[0], AVGS_ARRAY_LENGTH);
+	}
+	
+	public MesoStation[] getSecondAvgPair() {
+		return Arrays.copyOf(arrayOfAvg[1], AVGS_ARRAY_LENGTH);
+	}
+	
 	public boolean isIndexSkipable(){
-		System.out.println("is position within array #" + indexOfStation + " skipable?");
+		//System.out.println("is position within array #" + indexOfStation + " skipable?");
 		if (indexOfStation > DISTANCE_TO_AVG) {
 			if (indexOfStation < (MesoInherit.STATIONS.length - DISTANCE_TO_AVG)) {
-				System.out.println("no, continuing instructions");
+				//System.out.println("no, continuing instructions" + '\n');
 				return false;
 			}
 		}
-		System.out.println("yes, stoping instructions");
+		//System.out.println("yes, stoping instructions" + '\n');
 		return true;
 	}
 
 	@Override
 	public int compareTo(MesoStation o) {
 		return station.getStID().compareTo(o.getStID());
+	}
+
+	public String toString() {
+		String formated = "This index is average of ";
+		formated += String.format("%s and %s, ", arrayOfAvg[0][FIRST_AVG_INDEX].getStID(), 
+				arrayOfAvg[0][SECOND_AVG_INDEX].getStID());
+		formated += String.format("%s and %s, ", arrayOfAvg[1][FIRST_AVG_INDEX].getStID(), 
+				arrayOfAvg[1][SECOND_AVG_INDEX].getStID());
+		formated += "and so on.";
+		
+		return formated;
 	}
 }
