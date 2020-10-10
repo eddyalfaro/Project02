@@ -56,9 +56,9 @@ public class MesoInherit extends MesoAbstract{
 		int index = 0;
 		
 		for (String station : stations) {
-			System.out.print("Creating MesoStation #" + index + ": ");
+			//System.out.print("Creating MesoStation #" + index + ": ");
 			array[index] = new MesoStation(station);
-			System.out.println("" + array[index].getStID());
+			//System.out.println("" + array[index].getStID());
 			index++;
 		}
 		
