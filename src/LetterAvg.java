@@ -12,8 +12,8 @@ public class LetterAvg{
 		stationsWithLetterAvg = findStationsWithLetter(this.letter);
 	}
 
-	public String numberOfStationWithLetterAvg() {
-		return "" + stationsWithLetterAvg.length;
+	public int numberOfStationWithLetterAvg() {
+		return stationsWithLetterAvg.length;
 	}
 	
 	public static MesoStation[] findStationsWithLetter(Character o) {

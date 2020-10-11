@@ -18,14 +18,10 @@ public class PosAvg implements Comparable<MesoStation>{
 		this.getAvgIndexStations();
 	}
 	
-	public String indexOfStation() {
-		return "" + indexOfStation;
-	}
-	
-	public int getIndexOfStation() {
+	public int indexOfStation() {
 		return indexOfStation;
 	}
-
+	
 	private void findIndex() {
 		indexOfStation = 1;
 		for(MesoStation stations : MesoInherit.STATIONS) {
