@@ -1,3 +1,4 @@
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -7,12 +8,16 @@ import java.util.stream.Stream;
 
 public class MesoInherit extends MesoAbstract{
 
-	public final static MesoStation[] STATIONS = converToMesoStation(getStations());
+	protected final static MesoStation[] STATIONS = converToMesoStation(getStations());
 	
+	private final static int CEILING_INDEX = 0;
+	private final static int FLOOR_INDEX = 1;
+	private final static int AVG_INDEX = 2;
 	private final static int STARTING_LINE = 3;
+	
 	private final static String FILE_NAME = "Mesonet.txt";
 	
-	public MesoInherit() {
+	public MesoInherit(MesoStation station) {
 		
 	}
 	
@@ -55,9 +60,9 @@ public class MesoInherit extends MesoAbstract{
 		int index = 0;
 		
 		for (String station : stations) {
-			System.out.print("Creating MesoStation #" + index + ": ");
+			//System.out.print("Creating MesoStation #" + index + ": ");
 			array[index] = new MesoStation(station);
-			System.out.println("" + array[index].getStID());
+			//System.out.println("" + array[index].getStID());
 			index++;
 		}
 		
@@ -65,13 +70,13 @@ public class MesoInherit extends MesoAbstract{
 	}
 		
 	@Override
-	int[] calAverage() {
+	public int[] calAverage() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	char letterAverage() {
+	public char letterAverage() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
