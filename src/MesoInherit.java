@@ -17,8 +17,17 @@ public class MesoInherit extends MesoAbstract{
 	
 	private final static String FILE_NAME = "Mesonet.txt";
 	
+	private MesoStation station;
+	private double avgValue;
+	private char avgCharacter;
+	private int roundAvg;
+	
 	public MesoInherit(MesoStation station) {
+		this.station = station;	
+		averageStID();
 		
+		roundAvg = roundNumber(avgValue);
+		avgCharacter = (char) roundAvg;
 	}
 	
 	private static String[] readFile(String fileName) {
@@ -71,14 +80,48 @@ public class MesoInherit extends MesoAbstract{
 		
 	@Override
 	public int[] calAverage() {
-		// TODO Auto-generated method stub
-		return null;
+		int[] avgValues = new int[station.getStID().length()];	
+		
+		avgValues[CEILING_INDEX] = (int) (avgValue + 1);
+		avgValues[FLOOR_INDEX] = (int) avgValue;
+		avgValues[AVG_INDEX] = roundAvg;
+		
+		return avgValues;
+	}
+	
+	private void averageStID() {
+		char[] stationCharacters = station.getStID().toCharArray();
+		
+		int sum = 0;
+		
+		for (char c : stationCharacters) {
+			sum += c;
+			//System.out.println("Character '" + c + "' with ASCII value: " + (int) c );
+		}
+		
+		//System.out.println("Sum of Characters: " + sum);
+		
+		avgValue = sum / ((double) stationCharacters.length);
+		//System.out.println("Avg value: " + avgValue + '\n');
 	}
 
+	public int roundNumber(double value) {	
+		//System.out.println("value to round: " + value);
+		int up = (int) (100 * value);
+		int down = ((int) value) * 100;
+		int residue = up % down;
+		
+		//System.out.println("100th decimal numbers: " + residue);
+		if (residue < 75) {
+			return (int) value;
+		}else {
+			return (int) (value + 1);
+		}
+	}
+	
 	@Override
 	public char letterAverage() {
-		// TODO Auto-generated method stub
-		return 0;
+		return avgCharacter;
 	}
    
 }
