@@ -2,14 +2,14 @@ import java.util.Arrays;
 
 public class PosAvg implements Comparable<MesoStation>{
 	
-	private static final int DISTANCE_TO_AVG = 2;
-	private static final int AVGS_ARRAY_LENGTH = 2;
-	private static final int FIRST_AVG_INDEX = 0;
-	private static final int SECOND_AVG_INDEX = 1;
+	private static final int DISTANCE_TO_AVG = 2;//Value that defines the range of stations from the indexOfStation
+	private static final int AVGS_ARRAY_LENGTH = 2;//value that states how many stations are expected to be averaged in order to obtain indexOfStation
+	private static final int FIRST_AVG_INDEX = 0;//index for the first station in an array for the pair of stations that make up for the avg
+	private static final int SECOND_AVG_INDEX = 1;//index for the second station in an array for the pair of stations that make up for the avg
 	
-	private MesoStation station; 
+	private MesoStation station; //instance variable initialized in the constructor
 	private int indexOfStation; //index value of station in Mesonet starting from 1
-	private MesoStation[][] arrayOfAvg;
+	private MesoStation[][] arrayOfAvg; //the array is formed by various arrays that contain a pair of stid that make up for the position avg
 	
 	public PosAvg(String stID) {
 		station = new MesoStation(stID);	
@@ -73,7 +73,7 @@ public class PosAvg implements Comparable<MesoStation>{
 	}
 
 	@Override
-	public int compareTo(MesoStation o) {
+	public int compareTo(MesoStation o) {//uses the copareTo of a String type of variable with the stID value of a object type MesoStation
 		return station.getStID().compareTo(o.getStID());
 	}
 
