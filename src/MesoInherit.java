@@ -14,6 +14,7 @@ public class MesoInherit extends MesoAbstract{
 	private final static int FLOOR_INDEX = 1;
 	private final static int AVG_INDEX = 2;
 	private final static int STARTING_LINE = 3;
+	private final static int ROUNDING_LIMIT = 75;
 	
 	private final static String FILE_NAME = "Mesonet.txt";
 	
@@ -112,7 +113,7 @@ public class MesoInherit extends MesoAbstract{
 		int residue = up % down;
 		
 		//System.out.println("100th decimal numbers: " + residue);
-		if (residue < 75) {
+		if (residue < ROUNDING_LIMIT) {
 			return (int) value;
 		}else {
 			return (int) (value + 1);

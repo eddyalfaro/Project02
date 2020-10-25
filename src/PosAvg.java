@@ -64,7 +64,7 @@ public class PosAvg implements Comparable<MesoStation>{
 				return false;
 			}
 		}
-		//System.out.println("yes, stoping instructions" + '\n');
+		//System.out.println("yes, stopping instructions" + '\n');
 		return true;
 	}
 
